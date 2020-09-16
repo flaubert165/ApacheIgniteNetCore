@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheIgniteExample.Infrast
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheIgniteExample.Domain", "ApacheIgniteExample.Domain\ApacheIgniteExample.Domain.csproj", "{2ABC2043-626D-4314-BC1B-61E6F2D492D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApacheIgniteExample.IoC", "ApacheIgniteExample.IoC\ApacheIgniteExample.IoC.csproj", "{99FC2EDB-C5EB-44F3-8A5B-EB062609287F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheIgniteExample.IoC", "ApacheIgniteExample.IoC\ApacheIgniteExample.IoC.csproj", "{99FC2EDB-C5EB-44F3-8A5B-EB062609287F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApacheIgniteExample.Server", "ApacheIgniteExample.Server\ApacheIgniteExample.Server.csproj", "{6496891E-BA35-449D-97C7-2C8F1A7B1406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{99FC2EDB-C5EB-44F3-8A5B-EB062609287F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99FC2EDB-C5EB-44F3-8A5B-EB062609287F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99FC2EDB-C5EB-44F3-8A5B-EB062609287F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6496891E-BA35-449D-97C7-2C8F1A7B1406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6496891E-BA35-449D-97C7-2C8F1A7B1406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6496891E-BA35-449D-97C7-2C8F1A7B1406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6496891E-BA35-449D-97C7-2C8F1A7B1406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
