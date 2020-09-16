@@ -63,7 +63,7 @@
 						<property name="addresses">
 							<list>
 								<!-- In distributed environment, replace with actual host IP address. -->
-								<value>127.0.0.1:47500..47509</value>
+								<value>172.18.0.1:47500..47509</value>
 							</list>
 						</property>
 					</bean>
@@ -75,7 +75,7 @@
 			<bean class="org.apache.ignite.configuration.ClientConnectorConfiguration">
 				<property name="host" value="ignite-master"/>
 				<property name="port" value="47500"/>
-				<property name="portRange" value="30"/>
+				<property name="portRange" value="10"/>
 			</bean>
 		</property>
 	</bean>
