@@ -1,3 +1,5 @@
+using Apache.Ignite.Core;
+using Apache.Ignite.Core.Cache;
 using ApacheIgniteExample.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,7 +22,6 @@ namespace ApacheIgniteExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.Inject(Configuration);
-
             services.AddControllers();
         }
 
