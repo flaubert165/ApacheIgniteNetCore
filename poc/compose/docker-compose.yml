@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  target_network:
+    external:
+      name: clear
+
+services:
+    #Oracle 11g-xe
+    oracle:
+      container_name: clear-oraclexe
+      hostname: clear-oraclexe
+      ports:
+        - 1521:1521
+      environment: 
+        ORACLE_ALLOW_REMOTE: "true"
+      networks: 
+        target_network:
+          ipv4_address: 172.255.0.2
+      image: "epiclabs/docker-oracle-xe-11g"
