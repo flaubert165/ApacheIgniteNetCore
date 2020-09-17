@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/poc/oracle-dump/sinacormetadata.dmp
+/poc/oracle-dump/dumpclear.dmp
