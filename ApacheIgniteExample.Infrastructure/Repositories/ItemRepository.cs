@@ -34,7 +34,8 @@ create table clear.ItemIgnite
             if (!_counterDictionary.ContainsKey(key))
                 _counterDictionary.Add(key, 0);
 
-            var counter = _counterDictionary[key]++;
+            var counter = _counterDictionary[key];
+            counter++;
             _counterDictionary[key] = counter;
 
             Console.WriteLine($"\t\t{DateTime.UtcNow.ToString("yyyy-MM-dd")} - COUNTER({key}) --> {counter}");
@@ -114,6 +115,7 @@ create table clear.ItemIgnite
 
         public void Write(int key, string val)
         {
+            
             WriteCounter();
             //_itemCollection.Add(key, val);
 
