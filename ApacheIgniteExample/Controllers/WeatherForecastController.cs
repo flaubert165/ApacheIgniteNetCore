@@ -38,8 +38,8 @@ namespace ApacheIgniteExample.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            _repository.Load(new Guid());
-            return Ok();
+            //_repository.Load(new Guid());
+            return Ok(DateTime.UtcNow);
         }
     }
 }

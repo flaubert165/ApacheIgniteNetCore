@@ -6,11 +6,14 @@ using ApacheIgniteExample.Infrastructure.Datacontext;
 using System;
 using System.Collections.Generic;
 using Dapper;
+using System.Linq;
 
 namespace ApacheIgniteExample.Infrastructure.Repositories
 {
     public class OrderRepository : ICacheStore<Guid, Order>
     {
+        private static List<Order> _orders = new List<Order>();
+
         private IOracleDataContext _context;
 
         public OrderRepository(IOracleDataContext context)
@@ -20,6 +23,8 @@ namespace ApacheIgniteExample.Infrastructure.Repositories
 
         public void LoadCache(Action<Guid, Order> act, params object[] args)
         {
+            return;
+
             var query = "SELECT * FROM Orders";
 
             using (var ctx = _context.GetConnection())
@@ -32,16 +37,19 @@ namespace ApacheIgniteExample.Infrastructure.Repositories
 
         public void Delete(Guid key)
         {
-            throw new NotImplementedException();
+            _orders.Remove(_orders.FirstOrDefault(q => q.Id == key));
         }
 
         public void DeleteAll(IEnumerable<Guid> keys)
         {
-            throw new NotImplementedException();
+            foreach (var key in keys)
+                Delete(key);
         }
 
         public Order Load(Guid key)
         {
+            return _orders.FirstOrDefault(q => q.Id == key);
+
             var query = "SELECT * FROM Orders WHERE Id = @id";
 
             using (var ctx = _context.GetConnection())
@@ -55,6 +63,7 @@ namespace ApacheIgniteExample.Infrastructure.Repositories
 
         public IEnumerable<KeyValuePair<Guid, Order>> LoadAll(IEnumerable<Guid> keys)
         {
+
             var query = "SELECT * FROM Orders WHERE Id IN (@)";
 
             throw new NotImplementedException();
@@ -62,6 +71,7 @@ namespace ApacheIgniteExample.Infrastructure.Repositories
 
         public void Write(Guid key, Order val)
         {
+            return; 
             var query = "INSERT INTO Orders (Id, UserId, Symbol, Quantity, Side, Price, Type, Status, TriggerPrice, ExpiresAt, CreatedAt)" +
                         "VALUES (@id, @userId, @symbol, @quantity, @side, @price, @type, @status, @triggerPrice, @expiresAt, @createdAt)";
 
@@ -86,6 +96,8 @@ namespace ApacheIgniteExample.Infrastructure.Repositories
 
         public void WriteAll(IEnumerable<KeyValuePair<Guid, Order>> entries)
         {
+            return;
+
             var query = "INSERT INTO Orders (Id, UserId, Symbol, Quantity, Side, Price, Type, Status, TriggerPrice, ExpiresAt, CreatedAt )" +
                         "VALUES (@id, @userId, @symbol, @quantity, @side, @price, @type, @status, @triggerPrice, @expiresAt, @createdAt)";
 
