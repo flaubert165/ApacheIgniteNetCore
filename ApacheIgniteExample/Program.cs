@@ -5,6 +5,7 @@ using Apache.Ignite.Core.Client.Cache;
 using Apache.Ignite.Core.Discovery.Tcp;
 using Apache.Ignite.Core.Discovery.Tcp.Static;
 using Apache.Ignite.Core.Events;
+using ApacheIgniteExample.Infrastructure.Ignite;
 using ApacheIgniteExample.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -18,8 +19,11 @@ namespace ApacheIgniteExample
     {
         public static void Main(string[] args)
         {
-            IgniteInitialize();
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            IgniteManager.Initialize();
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -28,10 +32,5 @@ namespace ApacheIgniteExample
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-
-        public static void IgniteInitialize()
-        {
-            
-        }
     }
 }
